@@ -22,7 +22,7 @@ const Calendar = () => {
   const [currentEvents, setCurrentEvents] = useState([]);
 
   const handleDateClick = (selected) => {
-    const title = prompt("Silahkan masukan rencana anda");
+    const title = prompt("Please enter a new title for your event");
     const calendarApi = selected.view.calendar;
     calendarApi.unselect();
 
@@ -49,7 +49,7 @@ const Calendar = () => {
 
   return (
     <Box m="20px">
-      <Header title="Kalender" subtitle="Halaman kalender" />
+      <Header title="Calendar" subtitle="Full Calendar Interactive Page" />
 
       <Box display="flex" justifyContent="space-between">
         {/* CALENDAR SIDEBAR */}
@@ -57,15 +57,15 @@ const Calendar = () => {
           flex="1 1 20%"
           backgroundColor={colors.primary[400]}
           p="15px"
-          borderRadius="8px"
+          borderRadius="4px"
         >
-          <Typography variant="h3">Acara</Typography>
+          <Typography variant="h5">Events</Typography>
           <List>
             {currentEvents.map((event) => (
               <ListItem
                 key={event.id}
                 sx={{
-                  backgroundColor: colors.greenAccent[400],
+                  backgroundColor: colors.greenAccent[500],
                   margin: "10px 0",
                   borderRadius: "2px",
                 }}
@@ -98,9 +98,9 @@ const Calendar = () => {
               listPlugin,
             ]}
             headerToolbar={{
-              center: "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
-              right: "title",
               left: "prev,next today",
+              center: "title",
+              right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
             }}
             initialView="dayGridMonth"
             editable={true}
@@ -113,12 +113,12 @@ const Calendar = () => {
             initialEvents={[
               {
                 id: "12315",
-                title: "Liburan",
+                title: "All-day event",
                 date: "2022-09-14",
               },
               {
                 id: "5123",
-                title: "Rapat",
+                title: "Timed event",
                 date: "2022-09-28",
               },
             ]}
